@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="form-group col-md-3">
+        <div class="row" style="border-radius: 0px;">
+            <div class="list-group list-group-horizontal" id="list-tab" role="tablist">
+                <a (click)="todos()" class="list-group-item list-group-item-action active"  data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Todos</a>
+                <a (click)="aprobados()" class="list-group-item list-group-item-action" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Aprobados</a>
+                <a (click)="desaprobados()"class="list-group-item list-group-item-action" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Desaprobados</a>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+<div class="row">
+    <div class="form-group col-md-12">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col" style="text-align: center;">Nombre</th>
+                <th scope="col" style="text-align: center;">Apellido</th>
+                <th scope="col" style="text-align: center;">Promedio</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let alunno of alumnos">
+              <tr  *ngIf="alunno.Visible" [ngClass]="alunno.AproboCursada ? 'table-success' : 'table-warning'">
+                <td style="text-align: center;">{{alunno.Nombre}}</td>
+                <td style="text-align: center;">{{alunno.Apellido}}</td>
+                <td style="text-align: center;">{{alunno.Promedio}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
