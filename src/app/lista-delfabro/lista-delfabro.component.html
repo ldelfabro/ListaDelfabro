@@ -18,13 +18,15 @@
                 <th scope="col" style="text-align: center;">Nombre</th>
                 <th scope="col" style="text-align: center;">Apellido</th>
                 <th scope="col" style="text-align: center;">Promedio</th>
+                <th scope="col" style="text-align: center;">Estado de la cursada</th>
               </tr>
             </thead>
-            <tbody *ngFor="let alunno of alumnos">
-              <tr  *ngIf="alunno.Visible" [ngClass]="alunno.AproboCursada ? 'table-success' : 'table-warning'">
-                <td style="text-align: center;">{{alunno.Nombre}}</td>
-                <td style="text-align: center;">{{alunno.Apellido}}</td>
-                <td style="text-align: center;">{{alunno.Promedio}}</td>
+            <tbody *ngFor="let alumno of alumnos">
+              <tr  *ngIf="alumno.Visible" [ngClass]="alumno.AproboCursada ? 'table-success' : 'table-danger'" [style.color]="alumno.Promedio >= 7 ? 'blue' : 'red'">
+                <td style="text-align: center;">{{alumno.Nombre}}</td>
+                <td style="text-align: center;">{{alumno.Apellido}}</td>
+                <td style="text-align: center;" >{{alumno.Promedio | number : '1.2-2'}}</td>
+                <td style="text-align: center;" >{{alumno.AproboCursada | estadoAprobacion }}</td>
               </tr>
             </tbody>
           </table>

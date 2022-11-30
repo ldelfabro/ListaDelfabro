@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListaDelfabroComponent } from './lista-delfabro/lista-delfabro.component';
 import { CabeceraComponent } from './cabecera/cabecera.component';
+import { EstadoAprobacionPipe } from './estado-aprobacion.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaDelfabroComponent,
-    CabeceraComponent
+    CabeceraComponent,
+    EstadoAprobacionPipe
   ],
   imports: [
     BrowserModule,
